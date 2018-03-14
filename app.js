@@ -23,6 +23,7 @@ searchUser.addEventListener('keyup', (e) => {   //Listen for each key stroke
                 } else {
 										//Show profile
 										ui.showProfile(data.profile);
+										ui.showRepos(data.repos);
                 }
             });
     }	else {

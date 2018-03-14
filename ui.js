@@ -30,13 +30,40 @@ class UI {
                 </div>
             </div>
             <h3 class="page-heading mb-3">Latest repos</h3>
-            <div id="repose"></div>
+            <div id="repos"></div>
         `;
+    }
+    //show user repos
+    showRepos(repos) {
+			//create variable to save results into
+				let output = '';
+				//loop trough argument
+				repos.forEach((repo) => {	//repo is iterator in forEach
+					//for each repository of user,put in into html tags
+					output += `
+						<div class="card card-body mb-2">
+							<div class="row">
+								<div class="col-md-6">
+									<a href="${repo.html_url}" target="_blank">${repo.name}</a>
+								</div>
+								<div class="col-md-6">
+									<span class="badge badge-primary">Stars: ${repo.stargazers_count}</span>
+									<span class="badge badge-secondary">Watchers: ${repo.watchers_count}</span>
+									<span class="badge badge-success">Followers: ${repo.forms_count}</span>
+								</div>
+							</div>
+						</div>
+					`;
+				});
+
+				//output repos
+				document.getElementById('repos').innerHTML = output;
     }
     //clear profile method
     clearProfile() {
         this.profile.innerHTML = '';
     }
+
     //show alert method
     showAlert(message, className) {
         //clear any remaining alerts
@@ -58,7 +85,7 @@ class UI {
         //timeout after 3 sec
         setTimeout(() => {
             this.clearAlert();
-        }, 3000);//3 sec
+        }, 2000);//2 sec
     }
     //clear alert message
     clearAlert() {
