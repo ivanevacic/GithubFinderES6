@@ -4,6 +4,9 @@ const searchUser = document.getElementById('searchUser');
 //Init github class
 const github = new Github();
 
+// ui class
+const ui = new UI();
+
 //Search input event listener
 searchUser.addEventListener('keyup', (e) => {   //Listen for each key stroke
     //Get input text
@@ -19,7 +22,7 @@ searchUser.addEventListener('keyup', (e) => {   //Listen for each key stroke
 
                 } else {
 										//Show profile
-										console.log(data);
+										ui.showProfile(data.profile);
                 }
             });
     }	else {
