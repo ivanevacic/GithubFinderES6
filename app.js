@@ -19,13 +19,14 @@ searchUser.addEventListener('keyup', (e) => {   //Listen for each key stroke
                 //If there is no user with info as currently typed input
                 if(data.profile.message === 'Not Found'){
                     //Show alert
-
+										ui.showAlert('User not found', 'alert alert-danger');
                 } else {
 										//Show profile
 										ui.showProfile(data.profile);
                 }
             });
     }	else {
-			//Clear profile
+			//Clear profile when deleting input after finding result
+			ui.clearProfile();
 		}
 });
